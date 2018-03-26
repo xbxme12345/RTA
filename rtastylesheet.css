@@ -1,44 +1,70 @@
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
-#map {
-  height: 100%;
-}
-/* Optional: Makes the sample page fill the window. */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 /*Left Naviation Panel*/
 .sidebar {
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 26%; /* Set the width of the sidebar */
+    width: 25%; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-    z-index: 1; /* Stay on top */
     top: 0; /* Stay at the top */
     left: 0;
-    background-color: #fff;
+    background-color: #ffffff; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-#left-panel {
-  width: 300px;
-  height: 100%;
-  border: 5px solid red;
-  background-color: #fcc;
-  position: fixed;
-  top: 150px;
-  left: -275px;
+#logo {
+	width: 90%;
+	padding-left: 5%;
+	margin: 0;
+	padding-top: 5px;
+	padding-bottom: 0;
 }
 
-#left-panel:hover {
-  left: -250px;
+ /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+		width: 75%;
+		  float:right;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+#panel-body {
+	background-color:#2D93EA;
+	height: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-#left-panel.show {
-  left: 0px;
+.dest {
+	padding: 10px;
+	border-bottom: .5px solid #FFFFFF;
 }
+
+.d {
+	width: 5%;
+	padding-right: 3%;
+	
+}
+
+.location {
+	width: 70%;
+	margin-right: 3%;
+}
+
+.delete {
+	width: 5%;
+	margin-right: 1.2%;
+}
+
+.drag {
+	width: 5%;
+}
+
 
 /*Tabs
 .tabs #tab1,
@@ -119,10 +145,4 @@ ul#tabs > li:after {
   border-color : transparent transparent transparent #ddd;
   -webkit-transform : rotate(-48deg);
   right: -17px;
-}
-
-img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
 }

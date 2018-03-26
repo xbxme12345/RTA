@@ -1,16 +1,25 @@
-
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
+
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
     <meta charset="utf-8">
   </head>
   <body>
-  	<div class="sidebar">
-      <img src="logo.png">
+
+
+	  
+  	<div id="sidebar">
+		<img src="images/logo.png" id= "logo"/>
+		
+		<div id="panel-body">
+			
       <div class="tabs">
+
         <ul id="tabs">
           <li class="active">
             <a href="#">Settings</a>
@@ -23,10 +32,34 @@
           </li>
         </ul>
       </div>
+
+			
+			<div class="dest">
+				<img class="d" src="images/Dest.png" />
+				<input class="location" type="text" />
+				<img class="delete" src="images/delete.png" />
+				<img class="drag" src="images/drag.png" />
+			</div>
+			
+			<div class="dest">
+				<img class="d" src="images/Dest.png" />
+				<input class="location" type="text" />
+				<img class="delete" src="images/delete.png" />
+				<img class="drag" src="images/drag.png" />
+			</div>
+			
+			<div class="dest">
+				<img class="d" src="images/Dest.png" />
+				<input class="location" type="text" />
+				<img class="delete" src="images/delete.png" />
+				<img class="drag" src="images/drag.png" />
+			</div>
+			
+		</div>
     </div>
 
     <div id="map"></div>
-    <script type="text/javascript" src="rtascript.js"></script>
+	<script type="text/javascript" src="rtascript.js"></script>
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -39,7 +72,6 @@
           zoom: 6
         });
         infoWindow = new google.maps.InfoWindow;
-
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -47,7 +79,6 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
@@ -60,7 +91,6 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
@@ -71,7 +101,7 @@
     </script>
     <script async defer
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
-    async defer></script>
+    ></script>
 
   </body>
 </html>
