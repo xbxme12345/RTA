@@ -17,7 +17,14 @@
 		
 		<div id="panel-body">
 			
-			<div class="dest">
+			<div class="w3-bar w3-black">
+  				<button class="w3-bar-item w3-button" onclick="openTab('Journey')">Journey</button>
+				<button class="w3-bar-item w3-button" onclick="openTab('Settings')">Settings</button>
+			</div>
+			
+			<div id="Journey" class="tab">
+				
+  				<div class="dest">
 				<img class="d" src="images/Dest.png" />
 				<input class="location" type="text" />
 				<img class="delete" src="images/delete.png" />
@@ -37,6 +44,26 @@
 				<img class="delete" src="images/delete.png" />
 				<img class="drag" src="images/drag.png" />
 			</div>
+				
+			</div>
+
+			<div id="Settings" class="tab" style="display:none">
+  				<h2>Settings</h2>
+  				<p>Paris is the capital of France.</p> 
+			</div>
+			
+			<script>
+			function openTab(tabName) {
+    var i;
+    var x = document.getElementsByClassName("tab");
+    for (i = 0; i < x.length; i++) {
+        x[i].style.display = "none"; 
+    }
+    document.getElementById(cityName).style.display = "block"; 
+}
+			</script>
+			
+		
 			
 		</div>
     </div>
