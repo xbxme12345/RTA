@@ -11,10 +11,25 @@
   </head>
   <body>
 
-  	<div id="left-panel">
+	  
+  	<div id="sidebar">
 		<img src="images/logo.png" id= "logo"/>
 		
 		<div id="panel-body">
+			
+			<div class="tabs">
+        <ul id="tabs">
+          <li class="active">
+            <a href="#">Settings</a>
+          </li>
+          <li>
+            <a href="#">Calendar</a>
+          </li>
+          <li>
+            <a href="#">Destination</a>
+          </li>
+        </ul>
+      </div>
 			
 			<div class="dest">
 				<img class="d" src="images/Dest.png" />
@@ -42,6 +57,7 @@
     </div>
 
     <div id="map"></div>
+	<script type="text/javascript" src="rtascript.js"></script>
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
