@@ -1,28 +1,22 @@
-
 <!DOCTYPE html>
 <html>
   <head>
+
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
+
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+
     <meta charset="utf-8">
   </head>
   <body>
 
-             
   	<div id="left-panel">
 		<img src="images/logo.png" id= "logo"/>
 		
 		<div id="panel-body">
 			
-			<div class="w3-bar w3-black">
-  				<button class="w3-bar-item w3-button" onclick="openTab('Journey')">Journey</button>
-				<button class="w3-bar-item w3-button" onclick="openTab('Settings')">Settings</button>
-			</div>
-			
-			<div id="Journey" class="tab">
-				
-  				<div class="dest">
+			<div class="dest">
 				<img class="d" src="images/Dest.png" />
 				<input class="location" type="text" />
 				<img class="delete" src="images/delete.png" />
@@ -42,51 +36,11 @@
 				<img class="delete" src="images/delete.png" />
 				<img class="drag" src="images/drag.png" />
 			</div>
-				
-			</div>
-
-			<div id="Settings" class="tab" style="display:none">
-  				<h2>Settings</h2>
-  				<p>Paris is the capital of France.</p> 
-			</div>
-			
-			<script>
-			function openTab(tabName) {
-    var i;
-    var x = document.getElementsByClassName("tab");
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none"; 
-    }
-    document.getElementById(cityName).style.display = "block"; 
-}
-			</script>
-			
-		
 			
 		</div>
-
-      */
-  	<div class="sidebar">
-      <img src="logo.png">
-      <div class="tabs">
-        <ul id="tabs">
-          <li class="active">
-            <a href="#">Settings</a>
-          </li>
-          <li>
-            <a href="#">Calendar</a>
-          </li>
-          <li>
-            <a href="#">Destination</a>
-          </li>
-        </ul>
-      </div>
     </div>
-      
-      */
 
     <div id="map"></div>
-    <script type="text/javascript" src="rtascript.js"></script>
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
@@ -99,7 +53,6 @@
           zoom: 6
         });
         infoWindow = new google.maps.InfoWindow;
-
         // Try HTML5 geolocation.
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(function(position) {
@@ -107,7 +60,6 @@
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
             infoWindow.setPosition(pos);
             infoWindow.setContent('Location found.');
             infoWindow.open(map);
@@ -120,7 +72,6 @@
           handleLocationError(false, infoWindow, map.getCenter());
         }
       }
-
       function handleLocationError(browserHasGeolocation, infoWindow, pos) {
         infoWindow.setPosition(pos);
         infoWindow.setContent(browserHasGeolocation ?
