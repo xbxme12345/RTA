@@ -4,6 +4,7 @@
 
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
+	<script type="text/javascript" src="rtascript.js"></script>
 
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
 
@@ -33,7 +34,7 @@
         </ul>
       </div>
 
-			
+			<div id="dest">
 			<div class="dest">
 				<img class="d" src="images/Dest.png" />
 				<input class="location" type="text" />
@@ -48,18 +49,15 @@
 				<img class="drag" src="images/drag.png" />
 			</div>
 			
-			<div class="dest">
-				<img class="d" src="images/Dest.png" />
-				<input class="location" type="text" />
-				<img class="delete" src="images/delete.png" />
-				<img class="drag" src="images/drag.png" />
 			</div>
+				
+			<button onclick="addDest()">+</button>
 			
 		</div>
     </div>
 
     <div id="map"></div>
-	<script type="text/javascript" src="rtascript.js"></script>
+	  
     <script>
       // Note: This example requires that you consent to location sharing when
       // prompted by your browser. If you see the error "The Geolocation service
