@@ -1,105 +1,60 @@
 <!DOCTYPE html>
 <html>
   <head>
-
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
-	<script type="text/javascript" src="rtascript.js"></script>
-
+	  <script type="text/javascript" src="rtascript.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-
     <meta charset="utf-8">
   </head>
   <body>
 
+  <script async defer
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initAutocomplete"
+           async defer></script>
 
-	  
   	<div id="sidebar">
 		<img src="images/logo.png" id= "logo"/>
-		
-		<div id="panel-body">
-			
-      	<div class="tabs">
 
-        <ul id="tabs">
-          <li class="active">
-            <a href="#">Settings</a>
-          </li>
-          <li>
-            <a href="#">Calendar</a>
-          </li>
-          <li>
-            <a href="#">Destination</a>
-          </li>
-        </ul>
-      </div>
+  		<div id="panel-body">
 
-			<div id="dest">
-			<div class="dest">
-				<img class="d" src="images/Dest.png" />
-				<input class="location" type="text" />
-				<img class="delete" src="images/delete.png" />
-				<img class="drag" src="images/drag.png" />
-			</div>
-			
-			<div class="dest">
-				<img class="d" src="images/Dest.png" />
-				<input class="location" type="text" />
-				<img class="delete" src="images/delete.png" />
-				<img class="drag" src="images/drag.png" />
-			</div>
-			
-			</div>
-				
-			<button onclick="addDest()">+</button>
-			
-		</div>
+        <div class="tabs">
+
+          <ul id="tabs">
+            <li class="active">
+              <a href="#">Settings</a>
+            </li>
+            <li>
+              <a href="#">Calendar</a>
+            </li>
+            <li>
+              <a href="#">Destination</a>
+            </li>
+          </ul>
+        </div>
+
+  			<div id="dest">
+    			<div class="dest">
+    				<img class="d" src="images/Dest.png" />
+    				<input class="location" type="text" id="tmp"/>
+    				<img class="delete" src="images/delete.png" />
+    				<img class="drag" src="images/drag.png" />
+    			</div>
+
+    			<div class="dest">
+    				<img class="d" src="images/Dest.png" />
+    				<input class="location" type="text" />
+    				<img class="delete" src="images/delete.png" />
+    				<img class="drag" src="images/drag.png" />
+    			</div>
+  			</div>
+
+  			<button onclick="addDest()">+</button>
+
+  		</div>
     </div>
 
     <div id="map"></div>
-	  
-    <script>
-      // Note: This example requires that you consent to location sharing when
-      // prompted by your browser. If you see the error "The Geolocation service
-      // failed.", it means you probably did not give permission for the browser to
-      // locate you.
-      var map, infoWindow;
-      function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 6
-        });
-        infoWindow = new google.maps.InfoWindow;
-        // Try HTML5 geolocation.
-        if (navigator.geolocation) {
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-            infoWindow.setPosition(pos);
-            infoWindow.setContent('Location found.');
-            infoWindow.open(map);
-            map.setCenter(pos);
-          }, function() {
-            handleLocationError(true, infoWindow, map.getCenter());
-          });
-        } else {
-          // Browser doesn't support Geolocation
-          handleLocationError(false, infoWindow, map.getCenter());
-        }
-      }
-      function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-        infoWindow.setPosition(pos);
-        infoWindow.setContent(browserHasGeolocation ?
-                              'Error: The Geolocation service failed.' :
-                              'Error: Your browser doesn\'t support geolocation.');
-        infoWindow.open(map);
-      }
-    </script>
-    <script async defer
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
-    ></script>
 
   </body>
 </html>
