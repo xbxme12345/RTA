@@ -10,8 +10,8 @@
   <body>
 
   <script async defer
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
-  ></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initAutocomplete"
+           async defer></script>
 
   	<div id="sidebar">
 		<img src="images/logo.png" id= "logo"/>
@@ -36,7 +36,7 @@
   			<div id="dest">
     			<div class="dest">
     				<img class="d" src="images/Dest.png" />
-    				<input class="location" type="text" />
+    				<input class="location" type="text" id="tmp"/>
     				<img class="delete" src="images/delete.png" />
     				<img class="drag" src="images/drag.png" />
     			</div>
