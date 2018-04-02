@@ -1,3 +1,13 @@
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	background-color: white;
+}
+td {
+	padding-bottom: 5px;
+	padding-top: 5px;
+}
+
 /*Left Naviation Panel*/
 #sidebar {
     height: 100%; /* Full-height: remove this if you want "auto" height */
@@ -7,16 +17,14 @@
     left: 0;
     background-color: #ffffff; /* Black */
     overflow-x: hidden; /* Disable horizontal scroll */
-    padding-top: 5px;
+    padding: 0;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 #logo {
-	width: 90%;
-	padding-left: 5%;
+	width: 100%;
+	padding: 0;
 	margin: 0;
-	padding-top: 5px;
-	padding-bottom: 0;
 }
 
  /* Always set the map height explicitly to define the size of the div
@@ -38,6 +46,30 @@
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	position: relative;
+}
+
+#calendar {
+	position: absolute;
+	bottom: 0;
+}
+
+@media screen and (max-width: 1000px) {
+	#sidebar {
+		width: 35%;
+	}
+	#map {
+		width: 65%;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	#sidebar {
+		width: 50%;
+	}
+	#map {
+		width: 50%;
+	}
 }
 
 .dest {
