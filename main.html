@@ -9,9 +9,7 @@
   </head>
   <body>
 
-  <script async defer
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initAutocomplete"
-           async defer></script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initMap"></script>
 
   	<div id="sidebar">
 		<img src="images/logo.png" id= "logo"/>
@@ -33,21 +31,37 @@
           </ul>
         </div>
 
+        <div>
+        <strong>Mode of Travel: </strong>
+        <select id="mode" onchange="calcRoute();">
+          <option value="DRIVING">Driving</option>
+          <option value="WALKING">Walking</option>
+          <option value="BICYCLING">Bicycling</option>
+          <option value="TRANSIT">Transit</option>
+        </select>
+        </div>
+
   			<div id="dest">
-    			<div class="dest">
+    			<div class="dest" draggable="true">
     				<img class="d" src="images/Dest.png" />
-    				<input class="location" type="text" id="tmp"/>
-    				<img class="delete" src="images/delete.png" />
-    				<img class="drag" src="images/drag.png" />
+    				<input class="location" type="text" name="index[]"/>
+    				<img class="delete" src="images/delete.png" onclick="deleteLocation(event)"/>
+    				<img class="drag" src="images/drag.png" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)"/>
     			</div>
 
-    			<div class="dest">
+    			<div class="dest" draggable="true" >
     				<img class="d" src="images/Dest.png" />
-    				<input class="location" type="text" />
-    				<img class="delete" src="images/delete.png" />
-    				<img class="drag" src="images/drag.png" />
+    				<input class="location" type="text" name="index[]"/>
+    				<img class="delete" src="images/delete.png" onclick="deleteLocation(event)"/>
+    				<img class="drag" src="images/drag.png" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)"/>
     			</div>
-  			</div>
+          <div class="dest" draggable="true" >
+            <img class="d" src="images/Dest.png" />
+            <input class="location" type="text" name="index[]" onchange="search(event)"/>
+            <img class="delete" src="images/delete.png" onclick="deleteLocation(event)"/>
+            <img class="drag" src="images/drag.png" ondragstart="dragStarted(event)" ondragover="draggingOver(event)" ondrop="dropped(event)"/>
+          </div>
+        </div>
 
   			<button onclick="addDest()">+</button>
 
