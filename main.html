@@ -3,21 +3,15 @@
   <head>
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
-	  <script type="text/javascript" src="rtascript.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
   <body>
-
-  <script async defer
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initAutocomplete"
-           async defer></script>
-
   	<div id="sidebar">
-		
+
 		<div id="panel-body">
 			<img src="images/logo.png" id= "logo"/>
-				
+
       	<div class="tabs">
 
         <ul id="tabs">
@@ -32,14 +26,14 @@
           </li>
         </ul>
       </div>
-			
+
 			<!-- locations created here with js-->
-			<div id="dest">
+			<div id="dest" class="parentDiv">
 			</div>
-			
+
 			<!-- adds a location -->
 			<button id="myAddBtn">+</button>
-			
+
 			<table id="calendar" width="100%" border="1" cellspacing="0">
       			<tbody>
       				<td colspan="7" align="center"><b>April 2018</b></td>
@@ -99,12 +93,16 @@
 					  </tr>
       			</tbody>
     		</table>
-	
+
 		</div>
 
     </div>
 
     <div id="map"></div>
+    <script type="text/javascript" src="rtascript.js"></script>
 
+-   <script async defer
+-   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
+-   ></script>
   </body>
 </html>

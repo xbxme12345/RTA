@@ -1,3 +1,64 @@
+// Note: This example requires that you consent to location sharing when
+// prompted by your browser. If you see the error "The Geolocation service
+// failed.", it means you probably did not give permission for the browser to
+// locate you.
+var map, infoWindow, pos;
+function initMap() {
+  map = new google.maps.Map(document.getElementById('map'), {
+  center: {lat: -34.397, lng: 150.644},
+  zoom: 6
+});
+infoWindow = new google.maps.InfoWindow;
+// Try HTML5 geolocation.
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(function(position) {
+  pos = {
+    lat: position.coords.latitude,
+    lng: position.coords.longitude
+  };
+  infoWindow.setPosition(pos);
+  var geocoder = new google.maps.Geocoder;
+  geocodeLatLng(geocoder, map, infoWindow);
+  infoWindow.open(map);
+  map.setCenter(pos);
+}, function() {
+  handleLocationError(true, infoWindow, map.getCenter());
+});
+} else {
+  // Browser doesn't support Geolocation
+  handleLocationError(false, infoWindow, map.getCenter());
+  }
+}
+function handleLocationError(browserHasGeolocation, infoWindow, pos) {
+  infoWindow.setPosition(pos);
+  infoWindow.setContent(browserHasGeolocation ?
+    'Error: The Geolocation service failed.' :
+    'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.open(map);
+}
+
+//Display the address/location using reverse geocoding
+function geocodeLatLng(geocoder, map, infowindow) {
+  var latlngStr = pos;
+  var latlng = {lat: latlngStr.lat, lng: latlngStr.lng};
+  geocoder.geocode({'location': latlng}, function(results, status) {
+    if (status === 'OK') {
+      if (results[0]) {
+        map.setZoom(11);
+        var marker = new google.maps.Marker({
+          position: latlng,
+          map: map
+        });
+        infowindow.setContent(results[0].formatted_address);
+        infowindow.open(map, marker);
+      } else {
+        window.alert('No results found');
+      }
+    } else {
+      window.alert('Geocoder failed due to: ' + status);
+    }
+  });
+}
 
 // This example adds a search box to a map, using the Google Place Autocomplete
 // feature. People can enter geographical searches. The search box will return a
@@ -74,16 +135,16 @@ function initAutocomplete() {
 }
 
 window.onload = function(){
-	
+
 	var btnAddDest = document.getElementById("myAddBtn");
-	
+
 	//Initialize the list
 	initDest();
-	
+
 	btnAddDest.addEventListener("click", function(e){
 		addDest();
 	});
-	
+
 		// this code is not working
 	var tabs = $('.tabs > li');
 
@@ -91,7 +152,7 @@ window.onload = function(){
 	  tabs.removeClass('active');
 	  $(this).addClass('active');
 	});
-	
+
 }
 
 function initDest() {
@@ -100,33 +161,33 @@ function initDest() {
 }
 
 function addDest() {
-	
+
 	var destination = document.getElementById("dest");
-	
+
 	var create = document.createElement("div");
-	
+  create.setAttribute("id", "childDiv");
+
 	create.className = "dest";
 	var d = document.createElement("img");
 	d.className = "d";
 	d.src = "images/Dest.png";
-	
+
 	var del = document.createElement("img");
 	del.className = "delete";
 	del.setAttribute('src', 'images/delete.png');
-	
+
 	var drag = document.createElement("img");
 	drag.className = "drag";
 	drag.setAttribute('src','images/drag.png');
-	
+
 	var loc = document.createElement("input");
 	loc.className = "location";
 	loc.type = "text";
-	
+
 	create.appendChild(d);
 	create.appendChild(loc);
 	create.appendChild(del);
 	create.appendChild(drag);
-	
+
 	destination.appendChild(create);
-	
 }
