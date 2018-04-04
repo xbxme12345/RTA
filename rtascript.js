@@ -18,11 +18,11 @@ function initMap() {
     panel: document.getElementById('panel-body')
   });
 }
+// initMap
 
 function search(e) {
   var markers = [];
-  var currIndex =  e.target.parentElement.getAttribute("value");
-  console.log(searchBox[currIndex]);
+  var currIndex =  e.getAttribute("value");
 
   map.addListener('bounds_changed', function() {
     searchBox[currIndex].setBounds( map.getBounds() );
@@ -71,20 +71,20 @@ function search(e) {
         bounds.extend(place.geometry.location);
       }
     });
-
+    //for each place
+    update();
     map.fitBounds(bounds);
-
-    if (arr.length > 1) {
-      displayRoute(directionsService, directionsDisplay);
-    }
-
   });
+
+
+  if (arr.length > 1) {
+    displayRoute(directionsService, directionsDisplay);
+  }
 
   directionsDisplay.addListener('directions_changed', function() {
     computeTotalDistance(directionsDisplay.getDirections());
   });
-
-} //search
+};
 
 function displayRoute(service, display) {
   var size = arr.length;
@@ -113,7 +113,9 @@ function displayRoute(service, display) {
       alert('ERROR: ' + status);
     }
   });
-} //display
+
+}
+// display
 
 function computeTotalDistance(result) {
   var total = 0;
@@ -124,7 +126,8 @@ function computeTotalDistance(result) {
 
   total = total / 1000;
   document.getElementById('total').innerHTML = total + ' km';
-}// compute
+}
+// compute total
 
 window.onload = function(){
 
@@ -206,6 +209,7 @@ window.onload = function(){
 			console.log(valueTest);
 		}
 	});
+
 };
 
 
@@ -246,8 +250,6 @@ function addDest() {
 	var loc = document.createElement("input");
 	loc.className = "location";
 	loc.type = "text";
-  loc.setAttribute('onchange', 'search(event)');
-
 
 	create.appendChild(d);
 	create.appendChild(loc);
@@ -258,6 +260,9 @@ function addDest() {
 
   index = document.getElementsByClassName("location").length;
   searchBox[index-1] = new google.maps.places.SearchBox(loc);
+
+  update();
+
 }
 
 var source;
@@ -266,6 +271,8 @@ function dragStarted(e) {
   source = e.target.parentElement;
   //set data
   e.dataTransfer.setData("text/plain", source.innerHTML);
+
+  console.log(e.dataTransfer.getData("text/plain"));
   //specify allowed transfer
   e.dataTransfer.effectAllowed = "move";
 }
@@ -287,10 +294,27 @@ function dropped(e) {
   //update text in drop target
   e.target.parentElement.innerHTML = e.dataTransfer.getData("text/plain");
 
+  update();
 }
 //end of Reordering Locations
 
 //Delete Location
 function deleteLocation(e) {
+  var deletedIndex = e.target.parentElement.getAttribute('value');
   e.target.parentElement.remove();
+  var tmp = document.getElementById('dest').children;
+  arr.splice(deletedIndex, 1);
+
+  for (var f=deletedIndex; f<tmp.length; f++) {
+    tmp[1].setAttribute('value', 1);
+  }
+
+  update();
+}
+
+function update() {
+  var tmp = document.getElementById('dest').children;
+  for (var l=0; l<tmp.length; l++) {
+    search(tmp[l]);
+  }
 }
