@@ -162,9 +162,8 @@ window.onload = function(){
 		calendar.style.display="none"	
 	};*/
 	
-	settings.style.display="none";
+	settings.style.display="none";	
 	document.getElementById("expand-cal").style.display="none";
-
 
 	setting_tab.addEventListener("click",function(event){
 		setting_tab.setAttribute('class','active');
