@@ -7,29 +7,24 @@
     <meta charset="utf-8">
   </head>
   <body>
+    <div id="sidebar">
+      <div id="panel-body">
+        <img src="images/logo.png" id= "logo"/>
 
-  	<div id="sidebar">
-
-		<div id="panel-body">
-			<img src="images/logo.png" id= "logo"/>
-
-      	<div class="tabs">
-
-        <ul id="tabs">
-          <li tabindex="1" id="setting_tab">
-            <a href="#settings">Settings</a>
-          </li>
-          <li tabindex="2" id="calendar_tab">
-            <a href="#calendar">Calendar</a>
-          </li>
-          <li tabindex="3" id="destination_tab">
-            <a href="#destination">Destination</a>
-          </li>
-        </ul>
-
-      </div>
-
-
+        <div class="tabs">
+          <ul id="tabs">
+            <li tabindex="1" id="setting_tab">
+              <a href="#settings">Settings</a>
+            </li>
+            <li tabindex="2" id="calendar_tab">
+              <a href="#calendar">Calendar</a>
+            </li>
+            <li tabindex="3" id="destination_tab">
+              <a href="#destination">Destination</a>
+            </li>
+          </ul>
+        </div>
+        
       	<div id="settings">
 			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
 			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
@@ -237,14 +232,14 @@
 			</table>
 
 		</div>
-
     </div>
 
     <div id="map"></div>
+
     <script type="text/javascript" src="rtascript.js"></script>
 
     <script async defer
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initMap"
     ></script>
 
   </body>
