@@ -24,7 +24,7 @@ function initMap() {
     searchBox[i] = new google.maps.places.SearchBox(inputs[i]);
   }
 
-}
+} //initMap
 
 function search(e) {
   var markers = [];
@@ -90,7 +90,7 @@ function search(e) {
     computeTotalDistance(directionsDisplay.getDirections());
   });
 
-}
+} //search
 
 function displayRoute(service, display) {
   var size = arr.length;
@@ -119,7 +119,7 @@ function displayRoute(service, display) {
       alert('ERROR: ' + status);
     }
   });
-}
+} //display
 
 function computeTotalDistance(result) {
   var total = 0;
@@ -130,7 +130,7 @@ function computeTotalDistance(result) {
 
   total = total / 1000;
   document.getElementById('total').innerHTML = total + ' km';
-}
+}// compute
 
 //end of Google Maps API
 
@@ -140,6 +140,94 @@ tabs.on("click", function() {
   tabs.removeClass('active');
   $(this).addClass('active');
 });
+
+window.onload = function(){
+
+	var btnAddDest = document.getElementById("myAddBtn");
+
+	//Initialize the list
+	initDest();
+
+	btnAddDest.addEventListener("click", function(e){
+		addDest();
+	});
+
+	var metric = document.getElementById("metric");
+	var imperial = document.getElementById("imperial");
+	var settings = document.getElementById("settings");
+	var destination = document.getElementById("dest");
+	var setting_tab = document.getElementById("setting_tab");
+	var destination_tab = document.getElementById("destination_tab");
+	var calendar_tab = document.getElementById("calendar_tab");
+	var add = document.getElementById("myAddBtn");
+
+
+	/*if(!(setting_tab.classList.contains('active') && calendar_tab.classList.contains('active') && destination_tab.classList.contains('active')){
+		settings.style.display="none"
+		destination.style.display="none"
+		calendar.style.display="none"
+	};*/
+	
+	settings.style.display="none";	
+	document.getElementById("expand-cal").style.display="none";
+
+
+	setting_tab.addEventListener("click",function(event){
+		setting_tab.setAttribute('class','active');
+		calendar_tab.classList.remove('active');
+		destination_tab.classList.remove('active');
+
+		settings.style.display='';
+		destination.style.display="none";
+		document.getElementById("calendar").style.display="";
+		document.getElementById("expand-cal").style.display="none";
+		add.style.display="none";
+	});
+
+	destination_tab.addEventListener("click",function(event){
+		destination_tab.setAttribute('class','active');
+		calendar_tab.classList.remove('active');
+		setting_tab.classList.remove('active');
+
+		destination.style.display='';
+		settings.style.display="none";
+		document.getElementById("calendar").style.display="";
+		document.getElementById("expand-cal").style.display="none";
+	});
+
+	calendar_tab.addEventListener("click",function(event){
+		calendar_tab.setAttribute('class','active');
+		setting_tab.classList.remove('active');
+		destination_tab.classList.remove('active');
+
+		calendar.style.display='none';
+		destination.style.display="none";
+		settings.style.display="none";
+		add.style.display="none";
+		document.getElementById("expand-cal").style.display="";
+	});
+
+	settings.addEventListener("click",function(event){
+		if(metric.checked){
+			//event.preventDefault()
+			var valueTest = 50;
+			valueTest=valueTest*.621371;
+			console.log(valueTest);
+		}
+		else if(imperial.checked){
+			//event.preventDefault()
+			var valueTest = 50;
+			valueTest=valueTest*1.60934;
+			console.log(valueTest);
+		}
+	});
+};
+
+
+function initDest() {
+	addDest();
+	addDest();
+}
 
 // Add Location
 function addDest() {
@@ -151,6 +239,11 @@ function addDest() {
   create.draggable = "true";
   create.setAttribute('value', document.getElementsByClassName("location").length);
 
+	var destination = document.getElementById("dest");
+
+  create.setAttribute("id", "childDiv");
+
+	create.className = "dest";
 	var d = document.createElement("img");
 	d.className = "d";
 	d.src = "images/Dest.png";
@@ -215,5 +308,6 @@ function dropped(e) {
 //Delete Location
 function deleteLocation(e) {
   e.target.parentElement.remove();
-}
+
+// 	destination.appendChild(create);
 //end of Delete Location
