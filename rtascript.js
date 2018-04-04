@@ -1,14 +1,18 @@
 // Google Maps API
 var map;
 var searchBox = [];
+var directionsService;
+var directionsDisplay;
+var arr = [];
+
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
     zoom: 4,
     center: {lat: -24.345, lng: 134.46}
   });
 
-  var directionsService = new google.maps.DirectionsService;
-  var directionsDisplay = new google.maps.DirectionsRenderer({
+  directionsService = new google.maps.DirectionsService;
+  directionsDisplay = new google.maps.DirectionsRenderer({
     draggable: true,
     map: map,
     panel: document.getElementById('panel-body')
@@ -34,26 +38,17 @@ function search(e) {
   // more details for that place.
   searchBox[index].addListener('places_changed', function() {
     var places = searchBox[index].getPlaces();
-    console.log(places);
 
     if (places.length == 0) {
       return;
     }
 
-    // Listen for the event fired when the user selects a prediction and retrieve
-    // more details for that place.
-
-    // Clear out the old markers.
-    markers.forEach( function(marker) {
-      marker.setMap(null);
-    });
-
-    markers = [];
-
     // For each place, get the icon, name and location.
     var bounds = new google.maps.LatLngBounds();
-    var end;
+
     places.forEach( function(place) {
+      arr[index] = place;
+
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
         return;
@@ -81,30 +76,47 @@ function search(e) {
       else {
         bounds.extend(place.geometry.location);
       }
-
-      end = place;
     });
 
     map.fitBounds(bounds);
+
+    if (arr.length > 1) {
+      displayRoute(directionsService, directionsDisplay);
+    }
+
   });
 
-  // directionsDisplay.addListener('directions_changed', function() {
-  //   computeTotalDistance( directionsDisplay.getDirections() );
-  // });
+  directionsDisplay.addListener('directions_changed', function() {
+    computeTotalDistance(directionsDisplay.getDirections());
+  });
+
 }
 
-function displayRoute(origin, destination, service, display) {
+function displayRoute(service, display) {
+  var size = arr.length;
+  var way = [];
+
+  if (size > 2) {
+    var wayIndex = 0;
+    for (var j=1; j<size-1; j++) {
+      way.push({
+         location: arr[j].geometry.location
+       });
+
+    }
+  }
+
   service.route({
-    origin: origin,
-    destination: destination,
-    waypoints: [{location: 'Dorchester, MA'}],
+    origin: arr[0].geometry.location,
+    destination: arr[size-1].geometry.location,
+    waypoints: way,
     travelMode: 'DRIVING'
   }, function(response, status) {
     if (status === 'OK') {
       display.setDirections(response);
     }
     else {
-      alert('Could not display directions due to: ' + status);
+      alert('ERROR: ' + status);
     }
   });
 }
@@ -137,6 +149,7 @@ function addDest() {
 	var create = document.createElement("div");
 	create.className = "dest";
   create.draggable = "true";
+  create.setAttribute('value', document.getElementsByClassName("location").length);
 
 	var d = document.createElement("img");
 	d.className = "d";
@@ -194,6 +207,7 @@ function dropped(e) {
   source.innerHTML = e.target.parentElement.innerHTML;
   //update text in drop target
   e.target.parentElement.innerHTML = e.dataTransfer.getData("text/plain");
+
 }
 
 //end of Reordering Locations
