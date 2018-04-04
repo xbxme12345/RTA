@@ -144,7 +144,7 @@ window.onload = function(){
 	btnAddDest.addEventListener("click", function(e){
 		addDest();
 	});
-	
+
 	var metric = document.getElementById("metric");
 	var imperial = document.getElementById("imperial");
 	var settings = document.getElementById("settings");
@@ -158,9 +158,9 @@ window.onload = function(){
 	/*if(!(setting_tab.classList.contains('active') && calendar_tab.classList.contains('active') && destination_tab.classList.contains('active')){
 		settings.style.display="none"
 		destination.style.display="none"
-		calendar.style.display="none"	
+		calendar.style.display="none"
 	};*/
-	
+
 	settings.style.display="none";
 
 
@@ -168,7 +168,7 @@ window.onload = function(){
 		setting_tab.setAttribute('class','active');
 		calendar_tab.classList.remove('active');
 		destination_tab.classList.remove('active');
-		
+
 		settings.style.display='';
 		destination.style.display="none";
 		document.getElementById("calendar").style.display="";
@@ -179,7 +179,7 @@ window.onload = function(){
 		destination_tab.setAttribute('class','active');
 		calendar_tab.classList.remove('active');
 		setting_tab.classList.remove('active');
-		
+
 		destination.style.display='';
 		settings.style.display="none";
 		document.getElementById("calendar").style.display="";
@@ -189,7 +189,7 @@ window.onload = function(){
 		calendar_tab.setAttribute('class','active');
 		setting_tab.classList.remove('active');
 		destination_tab.classList.remove('active');
-		
+
 		calendar.style.display='none';
 		destination.style.display="none";
 		settings.style.display="none";

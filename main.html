@@ -3,7 +3,6 @@
   <head>
     <title>RTA</title>
     <link rel="stylesheet" type="text/css" href="rtastylesheet.css">
-    <script type="text/javascript" src="rtascript.js"></script>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
@@ -26,16 +25,16 @@
           <li tabindex="3" id="destination_tab">
             <a href="#destination">Destination</a>
           </li>
-        </ul> 
-		
+        </ul>
+
       </div>
 
-      
+
       	<div id="settings">
 			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
 			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
 		</div>
-			
+
 			<!-- locations created here with js-->
 			<div id="dest" class="parentDiv">
 			</div>
@@ -108,8 +107,11 @@
     </div>
 
     <div id="map"></div>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initAutocomplete"
-           async defer></script>
-    
+    <script type="text/javascript" src="rtascript.js"></script>
+
+    <script async defer
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
+    ></script>
+
   </body>
 </html>
