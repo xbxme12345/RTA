@@ -6,245 +6,236 @@
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
   </head>
-  <body>
+  <body>   
+    <div id="sidebar">
+      <div id="panel-body">
+        <img src="images/logo.png" id= "logo"/>
 
-  	<div id="sidebar">
+        <div class="tabs">
+          <ul id="tabs">
+            <li tabindex="1" id="setting_tab">
+              <a href="#settings">Settings</a>
+            </li>
+            <li tabindex="2" id="calendar_tab">
+              <a href="#calendar">Calendar</a>
+            </li>
+            <li tabindex="3" id="destination_tab">
+              <a href="#destination">Destination</a>
+            </li>
+          </ul>
+        </div> //tabs
 
-		<div id="panel-body">
-			<img src="images/logo.png" id= "logo"/>
+        <div id="settings">
+          <input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
+          <input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
+        </div> //settings
 
-      	<div class="tabs">
+        <!-- locations created here with js-->      
+        <div id="dest" class="parentDiv"
+        </div> //locations
+    
+        <!-- adds a location -->
+        <button id="myAddBtn">+</button>
+      </div> //panel-body
 
-        <ul id="tabs">
-          <li tabindex="1" id="setting_tab">
-            <a href="#settings">Settings</a>
-          </li>
-          <li tabindex="2" id="calendar_tab">
-            <a href="#calendar">Calendar</a>
-          </li>
-          <li tabindex="3" id="destination_tab">
-            <a href="#destination">Destination</a>
-          </li>
-        </ul>
+      <table id="calendar" width="100%" border="1" cellspacing="0">
+        <tbody>
+          <td colspan="7" align="center"><b>April 2018</b></td>
+            <tr>
+              <td align="center">S</td>
+              <td align="center">M</td>
+              <td align="center">T</td>
+              <td align="center">W</td>
+              <td align="center">T</td>
+              <td align="center">F</td>
+              <td align="center">S</td>
+            </tr>
+            <tr>
+              <td align="center">1</td>
+              <td align="center">2</td>
+              <td align="center">3</td>
+              <td align="center">4</td>
+              <td align="center">5</td>
+              <td align="center">6</td>
+              <td align="center">7</td>
+            </tr>
+            <tr>
+              <td align="center">8</td>
+              <td align="center">9</td>
+              <td align="center">10</td>
+              <td align="center">11</td>
+              <td align="center">12</td>
+              <td align="center">13</td>
+              <td align="center">14</td>
+            </tr>
+            <tr>
+              <td align="center">15</td>
+              <td align="center">16</td>
+              <td align="center">17</td>
+              <td align="center">18</td>
+              <td align="center">19</td>
+              <td align="center">20</td>
+              <td align="center">21</td>
+            </tr>
+            <tr>
+              <td align="center">22</td>
+              <td align="center">23</td>
+              <td align="center">24</td>
+              <td align="center">25</td>
+              <td align="center">26</td>
+              <td align="center">27</td>
+              <td align="center">28</td>
+            </tr>
+            <tr>
+              <td align="center">29</td>
+              <td align="center">30</td>
+              <td align="center"> </td>
+              <td align="center"> </td>
+              <td align="center"> </td>
+              <td align="center"> </td>
+              <td align="center"> </td>
+            </tr>
+          </tbody>
+        </table>
 
-      </div>
-
-
-      	<div id="settings">
-			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
-			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
-		</div>
-
-			<!-- locations created here with js-->
-			<div id="dest" class="parentDiv">
-			</div>
-
-			<!-- adds a location -->
-			<button id="myAddBtn">+</button>
-
-			<table id="calendar" width="100%" border="1" cellspacing="0">
-      			<tbody>
-      				<td colspan="7" align="center"><b>April 2018</b></td>
-					  <tr>
-						<td align="center">S</td>
-						<td align="center">M</td>
-						<td align="center">T</td>
-						<td align="center">W</td>
-						<td align="center">T</td>
-						<td align="center">F</td>
-						<td align="center">S</td>
-					  </tr>
-					  <tr>
-						<td align="center">1</td>
-						<td align="center">2</td>
-						<td align="center">3</td>
-						<td align="center">4</td>
-						<td align="center">5</td>
-						<td align="center">6</td>
-						<td align="center">7</td>
-					  </tr>
-					  <tr>
-						<td align="center">8</td>
-						<td align="center">9</td>
-						<td align="center">10</td>
-						<td align="center">11</td>
-						<td align="center">12</td>
-						<td align="center">13</td>
-						<td align="center">14</td>
-					  </tr>
-					  <tr>
-						<td align="center">15</td>
-						<td align="center">16</td>
-						<td align="center">17</td>
-						<td align="center">18</td>
-						<td align="center">19</td>
-						<td align="center">20</td>
-						<td align="center">21</td>
-					  </tr>
-					  <tr>
-						<td align="center">22</td>
-						<td align="center">23</td>
-						<td align="center">24</td>
-						<td align="center">25</td>
-						<td align="center">26</td>
-						<td align="center">27</td>
-						<td align="center">28</td>
-					  </tr>
-					  <tr>
-						<td align="center">29</td>
-						<td align="center">30</td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-					  </tr>
-      			</tbody>
-    		</table>
-
-			
-			
-			<table id="expand-cal" width ="100%">
-							<tbody>
-			  <tr>
-			    <th align="center" colspan="3">April 2018</th>
-			  </tr>
-			  <tr>
-			    <td align="center">1</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">2</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">3</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">4</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">5</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">6</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">7</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">8</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">9</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">10</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">11</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">12</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">13</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">14</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">15</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">16</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">17</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">18</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">19</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">20</td>
-			    <td class="tg-baqh" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">21</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">22</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">23</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">24</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">25</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">26</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">27</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">28</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">29</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">30</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  <tr>
-			    <td align="center">31</td>
-			    <td align="center" width="80%" height="30px";></td>
-			  </tr>
-			  </tbody>
-			</table>
-
-		</div>
-
-    </div>
+        <table id="expand-cal" width ="100%">
+          <tbody>
+            <tr>
+              <th align="center" colspan="3">April 2018</th>
+            </tr>
+            <tr>
+              <td align="center">1</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">2</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">3</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">4</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">5</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">6</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">7</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">8</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">9</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">10</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">11</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">12</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">13</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">14</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">15</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">16</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">17</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">18</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">19</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">20</td>
+              <td class="tg-baqh" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">21</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">22</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">23</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">24</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">25</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">26</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">27</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">28</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">29</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">30</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+            <tr>
+              <td align="center">31</td>
+              <td align="center" width="80%" height="30px";></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> //side panel
 
     <div id="map"></div>
     <script type="text/javascript" src="rtascript.js"></script>
 
     <script async defer
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&callback=initMap"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAfDQcEY6MUaEi6kJ-HbNvdiRY8cBzs2vM&libraries=places&callback=initMap"
     ></script>
 
   </body>
