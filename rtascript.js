@@ -1,4 +1,5 @@
 var map;
+var index;
 var searchBox = [];
 var directionsService;
 var directionsDisplay;
@@ -16,65 +17,21 @@ function initMap() {
     map: map,
     panel: document.getElementById('panel-body')
   });
-
-  // Create the search box and link it to the UI element.
-  var inputs = document.getElementsByClassName('location');
-  for (var i=0; i<inputs.length; i++) {
-    searchBox[i] = new google.maps.places.SearchBox(inputs[i]);
-  }
 }
-
-function handleLocationError(browserHasGeolocation, infoWindow, pos) {
-  infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-    'Error: The Geolocation service failed.' :
-    'Error: Your browser doesn\'t support geolocation.');
-  infoWindow.open(map);
-}
-
-//Display the address/location using reverse geocoding
-function geocodeLatLng(geocoder, map, infowindow) {
-  var latlngStr = pos;
-  var latlng = {lat: latlngStr.lat, lng: latlngStr.lng};
-  geocoder.geocode({'location': latlng}, function(results, status) {
-    if (status === 'OK') {
-      if (results[0]) {
-        map.setZoom(11);
-        var marker = new google.maps.Marker({
-          position: latlng,
-          map: map
-        });
-        infowindow.setContent(results[0].formatted_address);
-        infowindow.open(map, marker);
-      } else {
-        window.alert('No results found');
-      }
-    } else {
-      window.alert('Geocoder failed due to: ' + status);
-    }
-  });
-}
-
-// This example adds a search box to a map, using the Google Place Autocomplete
-// feature. People can enter geographical searches. The search box will return a
-// pick list containing a mix of places and predicted search terms.
-
-// This example requires the Places library. Include the libraries=places
-// parameter when you first load the API. For example:
-// <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
 
 function search(e) {
   var markers = [];
-  var index =  e.target.parentElement.getAttribute("value");
+  var currIndex =  e.target.parentElement.getAttribute("value");
+  console.log(searchBox[currIndex]);
 
   map.addListener('bounds_changed', function() {
-    searchBox[index].setBounds( map.getBounds() );
+    searchBox[currIndex].setBounds( map.getBounds() );
   });
 
   // Listen for the event fired when the user selects a prediction and retrieve
   // more details for that place.
-  searchBox[index].addListener('places_changed', function() {
-    var places = searchBox[index].getPlaces();
+  searchBox[currIndex].addListener('places_changed', function() {
+    var places = searchBox[currIndex].getPlaces();
 
     if (places.length == 0) {
       return;
@@ -84,7 +41,7 @@ function search(e) {
     var bounds = new google.maps.LatLngBounds();
 
     places.forEach( function(place) {
-      arr[index] = place;
+      arr[currIndex] = place;
 
       if (!place.geometry) {
         console.log("Returned place contains no geometry");
@@ -289,7 +246,8 @@ function addDest() {
 	var loc = document.createElement("input");
 	loc.className = "location";
 	loc.type = "text";
-    loc.name = "index[]";
+  loc.setAttribute('onchange', 'search(event)');
+
 
 	create.appendChild(d);
 	create.appendChild(loc);
@@ -297,6 +255,9 @@ function addDest() {
 	create.appendChild(drag);
 
 	destination.appendChild(create);
+
+  index = document.getElementsByClassName("location").length;
+  searchBox[index-1] = new google.maps.places.SearchBox(loc);
 }
 
 var source;
@@ -327,7 +288,6 @@ function dropped(e) {
   e.target.parentElement.innerHTML = e.dataTransfer.getData("text/plain");
 
 }
-
 //end of Reordering Locations
 
 //Delete Location
