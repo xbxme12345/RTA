@@ -22,27 +22,6 @@ function initMap() {
   for (var i=0; i<inputs.length; i++) {
     searchBox[i] = new google.maps.places.SearchBox(inputs[i]);
   }
-
-  infoWindow = new google.maps.InfoWindow;
-  // Try HTML5 geolocation.
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-    pos = {
-      lat: position.coords.latitude,
-      lng: position.coords.longitude
-    };
-    infoWindow.setPosition(pos);
-    var geocoder = new google.maps.Geocoder;
-    geocodeLatLng(geocoder, map, infoWindow);
-    infoWindow.open(map);
-    map.setCenter(pos);
-  }, function() {
-    handleLocationError(true, infoWindow, map.getCenter());
-  });
-  } else {
-    // Browser doesn't support Geolocation
-    handleLocationError(false, infoWindow, map.getCenter());
-  }
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -280,12 +259,17 @@ function initDest() {
 
 function addDest() {
 
-	var destination = document.getElementById("dest");
+  var destinations = document.querySelectorAll(".dest")
+  var last = destinations[destinations.length - 1];
 
 	var create = document.createElement("div");
   create.setAttribute("id", "childDiv");
-
+  create.draggable = "true";
 	create.className = "dest";
+  create.setAttribute('value', document.getElementsByClassName("location").length);
+
+  var destination = document.getElementById("dest");
+
 	var d = document.createElement("img");
 	d.className = "d";
 	d.src = "images/Dest.png";
@@ -293,14 +277,19 @@ function addDest() {
 	var del = document.createElement("img");
 	del.className = "delete";
 	del.setAttribute('src', 'images/delete.png');
+  del.setAttribute('onclick', 'deleteLocation(event)');
 
 	var drag = document.createElement("img");
 	drag.className = "drag";
 	drag.setAttribute('src','images/drag.png');
+  drag.setAttribute('ondragstart', 'dragStarted(event)');
+  drag.setAttribute('ondragover', 'draggingOver(event)');
+  drag.setAttribute('ondrop', 'dropped(event)');
 
 	var loc = document.createElement("input");
 	loc.className = "location";
 	loc.type = "text";
+    loc.name = "index[]";
 
 	create.appendChild(d);
 	create.appendChild(loc);
@@ -310,26 +299,38 @@ function addDest() {
 	destination.appendChild(create);
 }
 
+var source;
+function dragStarted(e) {
+  //start drag
+  source = e.target.parentElement;
+  //set data
+  e.dataTransfer.setData("text/plain", source.innerHTML);
+  //specify allowed transfer
+  e.dataTransfer.effectAllowed = "move";
+}
 
-//Display the address/location using reverse geocoding
-function geocodeLatLng(geocoder, map, infowindow) {
-  var latlngStr = pos;
-  var latlng = {lat: latlngStr.lat, lng: latlngStr.lng};
-  geocoder.geocode({'location': latlng}, function(results, status) {
-    if (status === 'OK') {
-      if (results[0]) {
-        map.setZoom(11);
-        var marker = new google.maps.Marker({
-          position: latlng,
-          map: map
-        });
-        infowindow.setContent(results[0].formatted_address);
-        infowindow.open(map, marker);
-      } else {
-        window.alert('No results found');
-      }
-    } else {
-      window.alert('Geocoder failed due to: ' + status);
-    }
-  });
+function draggingOver(e) {
+  //drag over
+  e.preventDefault();
+  //specify operation
+  e.dataTransfer.dropEffect = "move";
+}
+
+function dropped(e) {
+  //drop
+  e.preventDefault();
+  e.stopPropagation();
+
+  //update text in dragged item
+  source.innerHTML = e.target.parentElement.innerHTML;
+  //update text in drop target
+  e.target.parentElement.innerHTML = e.dataTransfer.getData("text/plain");
+
+}
+
+//end of Reordering Locations
+
+//Delete Location
+function deleteLocation(e) {
+  e.target.parentElement.remove();
 }
