@@ -84,15 +84,72 @@ window.onload = function(){
 		addDest();
 	});
 	
-		// this code is not working
-	var tabs = $('.tabs > li');
+	var metric = document.getElementById("metric");
+	var imperial = document.getElementById("imperial");
+	var settings = document.getElementById("settings");
+	var destination = document.getElementById("dest");
+	var setting_tab = document.getElementById("setting_tab");
+	var destination_tab = document.getElementById("destination_tab");
+	var calendar_tab = document.getElementById("calendar_tab");
+	var add = document.getElementById("myAddBtn");
 
-	tabs.on("click", function(){
-	  tabs.removeClass('active');
-	  $(this).addClass('active');
-	});
+
+	/*if(!(setting_tab.classList.contains('active') && calendar_tab.classList.contains('active') && destination_tab.classList.contains('active')){
+		settings.style.display="none"
+		destination.style.display="none"
+		calendar.style.display="none"	
+	};*/
 	
-}
+	settings.style.display="none";
+
+
+	setting_tab.addEventListener("click",function(event){
+		setting_tab.setAttribute('class','active');
+		calendar_tab.classList.remove('active');
+		destination_tab.classList.remove('active');
+		
+		settings.style.display='';
+		destination.style.display="none";
+		document.getElementById("calendar").style.display="";
+		add.style.display="none";
+	});
+
+	destination_tab.addEventListener("click",function(event){
+		destination_tab.setAttribute('class','active');
+		calendar_tab.classList.remove('active');
+		setting_tab.classList.remove('active');
+		
+		destination.style.display='';
+		settings.style.display="none";
+		document.getElementById("calendar").style.display="";
+	});
+
+	calendar_tab.addEventListener("click",function(event){
+		calendar_tab.setAttribute('class','active');
+		setting_tab.classList.remove('active');
+		destination_tab.classList.remove('active');
+		
+		calendar.style.display='none';
+		destination.style.display="none";
+		settings.style.display="none";
+		add.style.display="none";
+	});
+
+	settings.addEventListener("click",function(event){
+		if(metric.checked){
+			//event.preventDefault()
+			var valueTest = 50;
+			valueTest=valueTest*.621371;
+			console.log(valueTest);
+		}
+		else if(imperial.checked){
+			//event.preventDefault()
+			var valueTest = 50;
+			valueTest=valueTest*1.60934;
+			console.log(valueTest);
+		}
+	});
+};
 
 function initDest() {
 	addDest();
