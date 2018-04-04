@@ -29,6 +29,7 @@ if (navigator.geolocation) {
   handleLocationError(false, infoWindow, map.getCenter());
   }
 }
+
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
   infoWindow.setContent(browserHasGeolocation ?
@@ -160,8 +161,9 @@ window.onload = function(){
 		destination.style.display="none"
 		calendar.style.display="none"
 	};*/
-
-	settings.style.display="none";
+	
+	settings.style.display="none";	
+	document.getElementById("expand-cal").style.display="none";
 
 
 	setting_tab.addEventListener("click",function(event){
@@ -172,6 +174,7 @@ window.onload = function(){
 		settings.style.display='';
 		destination.style.display="none";
 		document.getElementById("calendar").style.display="";
+		document.getElementById("expand-cal").style.display="none";
 		add.style.display="none";
 	});
 
@@ -183,6 +186,7 @@ window.onload = function(){
 		destination.style.display='';
 		settings.style.display="none";
 		document.getElementById("calendar").style.display="";
+		document.getElementById("expand-cal").style.display="none";
 	});
 
 	calendar_tab.addEventListener("click",function(event){
@@ -194,6 +198,7 @@ window.onload = function(){
 		destination.style.display="none";
 		settings.style.display="none";
 		add.style.display="none";
+		document.getElementById("expand-cal").style.display="";
 	});
 
 	settings.addEventListener("click",function(event){
