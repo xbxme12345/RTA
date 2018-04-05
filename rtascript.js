@@ -4,6 +4,7 @@ var searchBox = [];
 var directionsService;
 var directionsDisplay;
 var arr = [];
+var measurement;
 
 function initMap() {
   map = new google.maps.Map(document.getElementById('map'), {
@@ -15,13 +16,12 @@ function initMap() {
   directionsDisplay = new google.maps.DirectionsRenderer({
     draggable: true,
     map: map,
-    panel: document.getElementById('panel-body')
+    panel: document.getElementById('directions')
   });
 }
 // initMap
 
 function search(e) {
-  var markers = [];
   var currIndex =  e.getAttribute("value");
 
   map.addListener('bounds_changed', function() {
@@ -42,26 +42,6 @@ function search(e) {
 
     places.forEach( function(place) {
       arr[currIndex] = place;
-
-      if (!place.geometry) {
-        console.log("Returned place contains no geometry");
-        return;
-      }
-      var icon = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-      };
-
-      // Create a marker for each place.
-      markers.push( new google.maps.Marker({
-        map: map,
-        icon: icon,
-        title: place.name,
-        position: place.geometry.location
-      }) );
 
       if (place.geometry.viewport) {
         // Only geocodes have viewport.
@@ -103,6 +83,7 @@ function displayRoute(service, display) {
   service.route({
     origin: arr[0].geometry.location,
     destination: arr[size-1].geometry.location,
+    unitSystem: measurement,
     waypoints: way,
     travelMode: 'DRIVING'
   }, function(response, status) {
@@ -148,6 +129,7 @@ window.onload = function(){
 	var destination_tab = document.getElementById("destination_tab");
 	var calendar_tab = document.getElementById("calendar_tab");
 	var add = document.getElementById("myAddBtn");
+  var directions = document.getElementById("directions");
 
 
 	/*if(!(setting_tab.classList.contains('active') && calendar_tab.classList.contains('active') && destination_tab.classList.contains('active')){
@@ -166,6 +148,7 @@ window.onload = function(){
 		destination_tab.classList.remove('active');
 
 		settings.style.display='';
+    directions.style.display="none";
 		destination.style.display="none";
 		document.getElementById("calendar").style.display="";
 		document.getElementById("expand-cal").style.display="none";
@@ -177,7 +160,9 @@ window.onload = function(){
 		calendar_tab.classList.remove('active');
 		setting_tab.classList.remove('active');
 
+    add.style.display='';
 		destination.style.display='';
+    directions.style.display="";
 		settings.style.display="none";
 		document.getElementById("calendar").style.display="";
 		document.getElementById("expand-cal").style.display="none";
@@ -188,25 +173,21 @@ window.onload = function(){
 		setting_tab.classList.remove('active');
 		destination_tab.classList.remove('active');
 
-		calendar.style.display='none';
 		destination.style.display="none";
 		settings.style.display="none";
 		add.style.display="none";
+    directions.style.display="none";
 		document.getElementById("expand-cal").style.display="";
 	});
 
 	settings.addEventListener("click",function(event){
 		if(metric.checked){
-			//event.preventDefault()
-			var valueTest = 50;
-			valueTest=valueTest*.621371;
-			console.log(valueTest);
+      measurement = google.maps.UnitSystem.METRIC;
+      update();
 		}
 		else if(imperial.checked){
-			//event.preventDefault()
-			var valueTest = 50;
-			valueTest=valueTest*1.60934;
-			console.log(valueTest);
+      measurement = google.maps.UnitSystem.IMPERIAL;
+      update();
 		}
 	});
 
