@@ -8,7 +8,7 @@
   </head>
   <body>
     <div id="sidebar">
-      <div id="panel-body">
+      <div id="panel-head">
         <img src="images/logo.png" id= "logo"/>
 
         <div class="tabs">
@@ -24,215 +24,220 @@
             </li>
           </ul>
         </div>
-
+      </div>
+      <!-- panel-head -->
+      <div id="panel-body">
       	<div id="settings">
-			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
-			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
-		</div>
+    			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
+    			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
+    		</div>
 
-			<!-- locations created here with js-->
-			<div id="dest" class="parentDiv">
-			</div>
+  			<!-- locations created here with js-->
+  			<div id="dest" class="parentDiv">
+  			</div>
 
-			<!-- adds a location -->
-			<button id="myAddBtn">+</button>
+  			<!-- adds a location -->
+  			<button id="myAddBtn" width="100%">Add another location</button>
 
-			<table id="calendar" width="100%" border="1" cellspacing="0">
-      			<tbody>
-      				<td colspan="7" align="center"><b>April 2018</b></td>
-					  <tr>
-						<td align="center">S</td>
-						<td align="center">M</td>
-						<td align="center">T</td>
-						<td align="center">W</td>
-						<td align="center">T</td>
-						<td align="center">F</td>
-						<td align="center">S</td>
+        <!-- directions -->
+        <div id="directions" class="directions">
+        </div>
+
+        <table id="expand-cal" width ="100%">
+          <tbody>
+            <tr>
+              <th align="center" colspan="3">April 2018</th>
+            </tr>
+            <tr>
+              <td align="center">1</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">Use this area to record itinerary details!</textarea></td>
+            </tr>
+            <tr>
+              <td align="center">2</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">hotel check in 5pm @ The Marriot, Boston</textarea></td>
+            </tr>
+            <tr>
+              <td align="center">3</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">7 pm dinner reservation @ Maggiano's</textarea></td>
+            </tr>
+            <tr>
+              <td align="center">4</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">5</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">6</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">7</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">8</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">9</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">10</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">11</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">12</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">13</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">14</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">15</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">16</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">17</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">18</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">19</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">20</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">21</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">22</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">23</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">24</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">25</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">26</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">27</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">28</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">29</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">30</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+            <tr>
+              <td align="center">31</td>
+              <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <!-- panel-body -->
+
+  			<table id="calendar" width="100%">
+    			<tbody>
+    				<td colspan="7" align="center"><b>April 2018</b></td>
+  					 <tr>
+  						<td align="center">S</td>
+  						<td align="center">M</td>
+  						<td align="center">T</td>
+  						<td align="center">W</td>
+  						<td align="center">T</td>
+  						<td align="center">F</td>
+  						<td align="center">S</td>
 					  </tr>
 					  <tr>
-						<td align="center">1</td>
-						<td align="center">2</td>
-						<td align="center">3</td>
-						<td align="center">4</td>
-						<td align="center">5</td>
-						<td align="center">6</td>
-						<td align="center">7</td>
+  						<td align="center">1</td>
+  						<td align="center">2</td>
+  						<td align="center">3</td>
+  						<td align="center">4</td>
+  						<td align="center">5</td>
+  						<td align="center">6</td>
+  						<td align="center">7</td>
 					  </tr>
 					  <tr>
-						<td align="center">8</td>
-						<td align="center">9</td>
-						<td align="center">10</td>
-						<td align="center">11</td>
-						<td align="center">12</td>
-						<td align="center">13</td>
-						<td align="center">14</td>
+  						<td align="center">8</td>
+  						<td align="center">9</td>
+  						<td align="center">10</td>
+  						<td align="center">11</td>
+  						<td align="center">12</td>
+  						<td align="center">13</td>
+  						<td align="center">14</td>
 					  </tr>
 					  <tr>
-						<td align="center">15</td>
-						<td align="center">16</td>
-						<td align="center">17</td>
-						<td align="center">18</td>
-						<td align="center">19</td>
-						<td align="center">20</td>
-						<td align="center">21</td>
+  						<td align="center">15</td>
+  						<td align="center">16</td>
+  						<td align="center">17</td>
+  						<td align="center">18</td>
+  						<td align="center">19</td>
+  						<td align="center">20</td>
+  						<td align="center">21</td>
 					  </tr>
 					  <tr>
-						<td align="center">22</td>
-						<td align="center">23</td>
-						<td align="center">24</td>
-						<td align="center">25</td>
-						<td align="center">26</td>
-						<td align="center">27</td>
-						<td align="center">28</td>
+  						<td align="center">22</td>
+  						<td align="center">23</td>
+  						<td align="center">24</td>
+  						<td align="center">25</td>
+  						<td align="center">26</td>
+  						<td align="center">27</td>
+  						<td align="center">28</td>
 					  </tr>
 					  <tr>
-						<td align="center">29</td>
-						<td align="center">30</td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-						<td align="center"> </td>
-					  </tr>
-      			</tbody>
-    		</table>
-
-
-
-			<table id="expand-cal" width ="100%">
-							<tbody>
-			  <tr>
-			    <th align="center" colspan="3">April 2018</th>
-			  </tr>
-			  <tr>
-			    <td align="center">1</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">Use this area to record itinerary details!</textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">2</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">hotel check in 5pm @ The Marriot, Boston</textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">3</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20">7 pm dinner reservation @ Maggiano's</textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">4</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">5</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">6</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">7</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">8</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">9</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">10</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">11</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">12</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">13</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">14</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">15</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">16</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">17</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">18</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">19</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">20</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">21</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">22</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">23</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">24</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">25</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">26</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">27</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">28</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">29</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">30</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  <tr>
-			    <td align="center">31</td>
-			    <td align="center" width="80%" height="30px"><textarea rows="4" cols="20"></textarea></td>
-			  </tr>
-			  </tbody>
-			</table>
-
-		</div>
+  						<td align="center">29</td>
+  						<td align="center">30</td>
+  						<td align="center"> </td>
+  						<td align="center"> </td>
+  						<td align="center"> </td>
+  						<td align="center"> </td>
+  						<td align="center"> </td>
+            </tr>
+          </tbody>
+        </table>
     </div>
+    <!-- sidebar -->
 
     <div id="map"></div>
 
