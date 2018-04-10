@@ -13,9 +13,6 @@
 
         <div class="tabs">
           <ul id="tabs">
-            <li tabindex="1" id="setting_tab">
-              <a href="#settings">Settings</a>
-            </li>
             <li tabindex="2" id="calendar_tab">
               <a href="#calendar">Calendar</a>
             </li>
@@ -23,13 +20,14 @@
               <a href="#destination">Destination</a>
             </li>
           </ul>
+		  <input type="image" src="images/gear.png" id="gear" width="30" height="30" title="Settings"/>
         </div>
       </div>
       <!-- panel-head -->
       <div id="panel-body">
       	<div id="settings">
     			<input type="radio"  id="metric" name="metric_imperial" value="metric">Metric
-    			<input type="radio" id="imperial" name="metric_imperial" value="imperial">Imperial
+    			<input type="radio" id="imperial" name="metric_imperial" value="imperial" checked="checked">Imperial
     		</div>
 
   			<!-- locations created here with js-->

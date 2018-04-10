@@ -67,10 +67,10 @@ function search(e) {
 };
 
 function displayRoute(service, display) {
-  var size = arr.length;
-  var way = [];
+	var size = arr.length;
+	var way = [];
 
-  if (size > 2) {
+	if (size > 2) {
     var wayIndex = 0;
     for (var j=1; j<size-1; j++) {
       way.push({
@@ -124,45 +124,39 @@ window.onload = function(){
 	var metric = document.getElementById("metric");
 	var imperial = document.getElementById("imperial");
 	var settings = document.getElementById("settings");
+	var settings_image=document.getElementById("gear")
 	var destination = document.getElementById("dest");
 	var setting_tab = document.getElementById("setting_tab");
 	var destination_tab = document.getElementById("destination_tab");
 	var calendar_tab = document.getElementById("calendar_tab");
 	var add = document.getElementById("myAddBtn");
-  var directions = document.getElementById("directions");
+	var directions = document.getElementById("directions");
 
-
-	/*if(!(setting_tab.classList.contains('active') && calendar_tab.classList.contains('active') && destination_tab.classList.contains('active')){
-		settings.style.display="none"
-		destination.style.display="none"
-		calendar.style.display="none"
-	};*/
 
 	settings.style.display="none";
 	document.getElementById("expand-cal").style.display="none";
 
+	settings_image.style.float="right"
+	settings_image.addEventListener("click",function(event){
+		var newWindow = window.open("",null,"height=100,width=100,status=yes,toolbar=no,menubar=no,location=yes,resizable=1");
+		newWindow.document.body.innerHTML = settings.innerHTML;
+		newWindow.resizeBy(75,75)
+		newWindow.focus();
+		newWindow.document.getElementById("metric").addEventListener("click",function(event){
+			changeMeasurement(newWindow)
+		});
 
-	setting_tab.addEventListener("click",function(event){
-		setting_tab.setAttribute('class','active');
-		calendar_tab.classList.remove('active');
-		destination_tab.classList.remove('active');
-
-		settings.style.display='';
-    directions.style.display="none";
-		destination.style.display="none";
-		document.getElementById("calendar").style.display="";
-		document.getElementById("expand-cal").style.display="none";
-		add.style.display="none";
+		newWindow.document.getElementById("imperial").addEventListener("click",function(event){
+			changeMeasurement(newWindow)
+		});
 	});
 
 	destination_tab.addEventListener("click",function(event){
 		destination_tab.setAttribute('class','active');
 		calendar_tab.classList.remove('active');
-		setting_tab.classList.remove('active');
-
-    add.style.display='';
+		add.style.display='';
 		destination.style.display='';
-    directions.style.display="";
+		directions.style.display="";
 		settings.style.display="none";
 		document.getElementById("calendar").style.display="";
 		document.getElementById("expand-cal").style.display="none";
@@ -170,7 +164,6 @@ window.onload = function(){
 
 	calendar_tab.addEventListener("click",function(event){
 		calendar_tab.setAttribute('class','active');
-		setting_tab.classList.remove('active');
 		destination_tab.classList.remove('active');
 
 		destination.style.display="none";
@@ -180,19 +173,18 @@ window.onload = function(){
 		document.getElementById("expand-cal").style.display="";
 	});
 
-	settings.addEventListener("click",function(event){
-		if(metric.checked){
-      measurement = google.maps.UnitSystem.METRIC;
-      update();
-		}
-		else if(imperial.checked){
-      measurement = google.maps.UnitSystem.IMPERIAL;
-      update();
-		}
-	});
 
 };
-
+function changeMeasurement(newWindow){
+		if(newWindow.document.getElementById("metric").checked){
+			measurement = google.maps.UnitSystem.METRIC;
+			update();
+		}
+		else if(newWindow.document.getElementById("imperial").checked){
+			measurement = google.maps.UnitSystem.IMPERIAL;
+			update();
+		}
+	}
 
 function initDest() {
 	addDest();
